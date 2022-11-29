@@ -9,13 +9,29 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 
-app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/index.html'))
-);
+app.get('/api/notes', (req, res) => {
+    readFromFile('./db/db.json').then((data) => {
+    notes = [].concat(JSON.parse(data))
+      res.json(notes);
+    })
+});
+
+app.post()
+
 
 app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
+
+app.get('/', (req, res) =>
+  res.sendFile(path.join(__dirname, '/public/index.html'))
+);
+
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, '/public/index.html'))
+);
+
+
 
 
 
