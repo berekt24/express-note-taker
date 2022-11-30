@@ -15,7 +15,7 @@ app.use(express.static('public'));
 
 app.get('/api/notes', (req, res) => {
   readFromFile('./db/db.json').then((data) => {
-    notes = [].concat(JSON.parse(data))
+    const notes = [].concat(JSON.parse(data));
     res.json(notes);
   })
 });
@@ -23,7 +23,7 @@ app.get('/api/notes', (req, res) => {
 app.post('/api/notes', (req, res) => {
   const note = req.body;
   readFromFile('./db/db.json').then((data) => {
-    notes = [].concat(JSON.parse(data));
+    const notes = [].concat(JSON.parse(data));
     note.id = notes.length + 1
     notes.push(note);
     return notes
@@ -33,8 +33,12 @@ app.post('/api/notes', (req, res) => {
   })
 });
 
-app.delete()
-
+app.delete('/api/notes/:id', (req, res) => {
+  const deleteID = parseInt(req.param.id);
+  readFromFile('./db/db.json').then((data) => {
+    const notes = [].concat(JSON.parse(data));
+    const newNotes = []
+  
 
 app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
