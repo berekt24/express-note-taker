@@ -6,6 +6,7 @@ const app = express();
 const util = require('util');
 
 const readFromFile = util.promisify(fs.readFile);
+const writeFromFile = util.promisify(fs.writeFile);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,7 +20,12 @@ app.get('/api/notes', (req, res) => {
     })
 });
 
-// app.post()
+app.post('/api/notes', (req, res) => {
+  readFromFile('./db/db.json').then((data) => {
+  notes = [].concat(JSON.parse(data));
+  note.id
+
+  });
 
 
 app.get('/notes', (req, res) =>
