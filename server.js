@@ -14,18 +14,21 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/api/notes', (req, res) => {
-    readFromFile('./db/db.json').then((data) => {
+  readFromFile('./db/db.json').then((data) => {
     notes = [].concat(JSON.parse(data))
-      res.json(notes);
-    })
+    res.json(notes);
+  })
 });
 
 app.post('/api/notes', (req, res) => {
+  const note = req.body;
   readFromFile('./db/db.json').then((data) => {
-  notes = [].concat(JSON.parse(data));
-  note.id
-
-  });
+    notes = [].concat(JSON.parse(data));
+    note.id = notes.length + 1
+    notes.push(note);
+    return notes
+  
+});
 
 
 app.get('/notes', (req, res) =>
