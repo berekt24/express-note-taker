@@ -27,7 +27,10 @@ app.post('/api/notes', (req, res) => {
     note.id = notes.length + 1
     notes.push(note);
     return notes
-  
+  }).then(function (notes) {
+    writeFromFile('./db/db.json', JSON.stringify(notes))
+    res.json(notes);
+  })
 });
 
 
