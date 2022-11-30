@@ -3,6 +3,9 @@ const path = require('path');
 const fs = require('fs');
 const PORT = 3001;
 const app = express();
+const util = require('util');
+
+const readFromFile = util.promisify(fs.readFile);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -16,7 +19,7 @@ app.get('/api/notes', (req, res) => {
     })
 });
 
-app.post()
+// app.post()
 
 
 app.get('/notes', (req, res) =>
