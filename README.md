@@ -19,7 +19,7 @@ This project is an application called Note Taker that can be used to write and s
      ![Heroku live server link](https://nameless-wave-69746.herokuapp.com/)
 
   ## Screenshot
-    
+    ![Screen Shot 2022-12-01 at 10 16 54 AM](https://user-images.githubusercontent.com/114173723/205090301-f3a43e57-3918-462a-8e64-c48b49727502.png)
 
   ## Questions
     Github: https://github.com/berekt24
