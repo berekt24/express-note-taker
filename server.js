@@ -33,11 +33,11 @@ app.post('/api/notes', (req, res) => {
   })
 });
 
-app.delete('/api/notes/:id', (req, res) => {
-  const deleteID = parseInt(req.param.id);
-  readFromFile('./db/db.json').then((data) => {
-    const notes = [].concat(JSON.parse(data));
-    const newNotes = []
+// app.delete('/api/notes/:id', (req, res) => {
+//   const deleteID = parseInt(req.param.id);
+//   readFromFile('./db/db.json').then((data) => {
+//     const notes = [].concat(JSON.parse(data));
+//     const newNotes = []
   
 
 app.get('/notes', (req, res) =>
